@@ -24,7 +24,7 @@ export default function Main() {
                     </h1>
                     <p className="text-lg">
 
-                        Passionate dedicated adaptable hindi naman testt
+                        Passionate dedicated adaptable 
                     </p>
                 </div>
             </div>
