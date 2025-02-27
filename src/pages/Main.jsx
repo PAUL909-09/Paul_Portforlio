@@ -39,7 +39,7 @@ export default function Main() {
                     </p>
 
                     <p className="text-lg text-stone-300 max-w-md">
-                        this my ONLY_TEST branch
+                        this my ONLY_TEST_ branch
                     </p>
                 </motion.div>
             </div>
