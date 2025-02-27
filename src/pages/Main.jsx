@@ -37,6 +37,10 @@ export default function Main() {
                         web development and problem-solving. Always eager to learn and grow in the
                         ever-evolving tech industry.
                     </p>
+
+                    <p className="text-lg text-stone-300 max-w-md">
+                        this my ONLY_TEST branch
+                    </p>
                 </motion.div>
             </div>
         </main>
