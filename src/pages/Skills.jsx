@@ -6,14 +6,10 @@ import HtmlIcon from "../assets/Icons/html.svg";
 import CssIcon from "../assets/Icons/css.svg";
 import JsIcon from "../assets/Icons/javascript.svg";
 import TailwindIcon from "../assets/Icons/tailwindcss.svg";
-// import c# from "../assets/Icons/csharp.svg";
 import ReactIcon from "../assets/Icons/react.svg";
-// import NodeIcon from "../assets/Icons/nodejs.svg";
-// import ExpressIcon from "../assets/Icons/expressjs.svg";
 import MongodbIcon from "../assets/Icons/mongodb.svg";
 import TypescriptIcon from "../assets/Icons/typescript.svg";
-import C from "../assets/Icons/c.svg"
-
+import C from "../assets/Icons/c.svg";
 
 // Tools
 import VscodeIcon from "../assets/Icons/vscode.svg";
@@ -29,16 +25,9 @@ export default function Skills() {
         { name: "JavaScript", icon: JsIcon },
         { name: "TailwindCSS", icon: TailwindIcon },
         { name: "C++", icon: C },
-        // { name: ".NET", icon: DotNetIcon },
-        // { name: "C#", icon: CsharpIcon },
-        // { name: "C++", icon: CplusplusIcon },
-        // { name: "Visual Basic", icon: VisualBasicIcon },
         { name: "React", icon: ReactIcon },
-        // { name: "Node.js", icon: NodeIcon },
-        // { name: "Express.js", icon: ExpressIcon },
         { name: "MongoDB", icon: MongodbIcon },
         { name: "TypeScript", icon: TypescriptIcon },
-        // { name: "Next.js", icon: NextjsIcon },
     ];
 
     const tools = [
@@ -50,12 +39,13 @@ export default function Skills() {
     ];
 
     return (
-        <section id="skills" className="min-h-screen flex flex-col items-center justify-center pt-24 bg-[#1a1a1a] text-white">
-            <h1 className="text-4xl font-bold mb-10">My Stack</h1>
-
-            {/* Technologies */}
-            <motion.div 
-                className="grid grid-cols-4 md:grid-cols-5 gap-6 px-6"
+        <section id="skills" className="min-h-screen flex flex-col items-center justify-center pt-16 text-white px-4">
+            {/* Technologies Section */}
+            <h1 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-orange-500 to-purple-500 bg-clip-text text-transparent">
+                My Stack
+            </h1>
+            <motion.div
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 w-full max-w-4xl px-4"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
@@ -64,23 +54,25 @@ export default function Skills() {
                 {technologies.map((tech, index) => (
                     <motion.div
                         key={tech.name}
-                        className="flex flex-col items-center bg-black/40 p-6 rounded-xl shadow-lg w-32 h-32"
-                        whileHover={{ scale: 1.1 }}
+                        className="flex flex-col items-center bg-black/40 p-3 md:p-4 rounded-lg shadow-md w-full h-20 md:h-24 hover:bg-black/50 transition-colors duration-300"
+                        whileHover={{ scale: 1.05 }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                        <img src={tech.icon} alt={tech.name} className="w-14 h-14 mb-2" />
-                        <p className="text-lg font-medium">{tech.name}</p>
+                        <img src={tech.icon} alt={tech.name} className="w-8 h-8 md:w-10 md:h-10 mb-1" />
+                        <p className="text-xs md:text-sm font-medium text-center">{tech.name}</p>
                     </motion.div>
                 ))}
             </motion.div>
 
             {/* Tools Section */}
-            <h2 className="text-3xl font-bold mt-16 mb-6">Tools I Use</h2>
-            <motion.div 
-                className="grid grid-cols-3 md:grid-cols-5 gap-6 px-6"
+            <h2 className="text-xl md:text-2xl font-bold mt-8 md:mt-10 mb-4 bg-gradient-to-r from-orange-500 to-purple-500 bg-clip-text text-transparent">
+                Tools I Use
+            </h2>
+            <motion.div
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 w-full max-w-4xl px-4"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
@@ -89,15 +81,15 @@ export default function Skills() {
                 {tools.map((tool, index) => (
                     <motion.div
                         key={tool.name}
-                        className="flex flex-col items-center bg-black/40 p-6 rounded-xl shadow-lg w-32 h-32"
-                        whileHover={{ scale: 1.1 }}
+                        className="flex flex-col items-center bg-black/40 p-3 md:p-4 rounded-lg shadow-md w-full h-20 md:h-24 hover:bg-black/50 transition-colors duration-300"
+                        whileHover={{ scale: 1.05 }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                        <img src={tool.icon} alt={tool.name} className="w-14 h-14 mb-2" />
-                        <p className="text-lg font-medium">{tool.name}</p>
+                        <img src={tool.icon} alt={tool.name} className="w-8 h-8 md:w-10 md:h-10 mb-1" />
+                        <p className="text-xs md:text-sm font-medium text-center">{tool.name}</p>
                     </motion.div>
                 ))}
             </motion.div>
