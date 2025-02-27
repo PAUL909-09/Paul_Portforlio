@@ -23,8 +23,8 @@ export default function Main() {
                         IT STUDENT
                     </h1>
                     <p className="text-lg">
-                        
-                        Passionate dedicated adaptable
+
+                        Passionate dedicated adaptable hindi naman testt
                     </p>
                 </div>
             </div>
