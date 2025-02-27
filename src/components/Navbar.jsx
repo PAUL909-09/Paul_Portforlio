@@ -1,22 +1,19 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-function GradientNavbar() {
-    const [active, setActive] = useState("main");
-    const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
+function FuturisticNavbar() {
+    const [active, setActive] = useState("about");
 
-    // Function to handle smooth scrolling to a section
     const scrollToSection = (sectionId) => {
         const section = document.getElementById(sectionId);
         if (section) {
             section.scrollIntoView({ behavior: "smooth" });
         }
-        setActive(sectionId); // Update the active state
-        setIsMenuOpen(false); // Close the mobile menu after clicking a link
+        setActive(sectionId);
     };
 
-    // Navigation items
     const navItems = [
-        { id: "main", label: "Main" },
+        { id: "home", label: "Home" },
         { id: "about", label: "About" },
         { id: "skills", label: "Skills" },
         { id: "projects", label: "Projects" },
@@ -24,61 +21,35 @@ function GradientNavbar() {
     ];
 
     return (
-        <nav className="fixed top-0 left-0 right-0 bg-black/40 backdrop-blur-xl p-4 mx-auto max-w-4xl flex items-center justify-between shadow-xl transition-all duration-300 z-50 rounded-b-full">
-            {/* Logo */}
-            <div
-                className="flex items-center space-x-2 transform transition-transform duration-300 hover:scale-110 cursor-pointer"
-                onClick={() => scrollToSection("main")}
-            >
-                <div className="bg-orange-500 text-white p-2 rounded-full font-bold shadow-lg">
-                    JC
-                </div>
-                <span className="text-white font-bold text-lg tracking-wider">JCREA</span>
-            </div>
-
-            {/* Hamburger Menu for Mobile */}
-            <button
-                className="text-white lg:hidden focus:outline-none"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-                <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M4 6h16M4 12h16m-7 6h7"
-                    />
-                </svg>
-            </button>
-
-            {/* Navigation Links */}
-            <ul
-                className={`lg:flex lg:items-center lg:space-x-6 text-white absolute lg:static top-16 left-0 w-full lg:w-auto bg-black/40 lg:bg-transparent backdrop-blur-xl lg:backdrop-blur-0 p-4 lg:p-0 rounded-lg lg:rounded-none transition-all duration-300 ${isMenuOpen ? "block" : "hidden"}`}
-            >
-                {navItems.map((item) => (
-                    <li key={item.id} className="my-2 lg:my-0">
-                        <a
+        <header className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-4xl bg-white/10 backdrop-blur-lg shadow-xl p-3 z-50 flex items-center justify-center rounded-full border border-gray-400">
+            {/* Navigation Bar */}
+            <div className="relative flex items-center w-full">
+                {/* Navigation Links */}
+                <nav className="flex justify-between w-full px-10 text-white">
+                    {navItems.map((item) => (
+                        <motion.a
+                            key={item.id}
                             href={`#${item.id}`}
                             onClick={() => scrollToSection(item.id)}
-                            className={`px-4 py-2 rounded-full font-bold transition-all duration-300 block lg:inline-block 
-                  ${active === item.id
-                                    ? "bg-orange-500 scale-110 shadow-md text-white"
-                                    : "hover:text-orange-400"
+                            className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 ${active === item.id ? "bg-orange-500 text-black shadow-lg" : "hover:text-orange-400 hover:scale-110"
                                 }`}
-                            aria-current={active === item.id ? "page" : undefined}
+                            whileHover={{ scale: 1.1, textShadow: "0px 0px 8px rgba(255, 165, 0, 0.8)" }}
                         >
                             {item.label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </nav>
+                        </motion.a>
+                    ))}
+                </nav>
+
+                {/* Central Logo */}
+                {/* <motion.div
+                    className="absolute left-1/2 transform -translate-x-1/2 bg-orange-500 text-white p-4 rounded-full font-bold shadow-lg border-4 border-gray-700"
+                    // whileHover={{ scale: 1.1, boxShadow: "0px 0px 20px rgba(255, 165, 0, 0.8)" }}
+                >
+                    JP
+                </motion.div> */}
+            </div>
+        </header>
     );
 }
 
-export default GradientNavbar;
+export default FuturisticNavbar;
