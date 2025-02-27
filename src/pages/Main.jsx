@@ -39,7 +39,7 @@ export default function Main() {
                     </p>
 
                     <p className="text-lg text-stone-300 max-w-md">
-                        this my newtest branch
+                        push changes from newtest branch to main
                     </p>
                 </motion.div>
             </div>
