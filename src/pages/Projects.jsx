@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import Cardfolder from "../components/card/cardfolder";
+import { Sample_Project } from "../constants";
 
 export default function Projects() {
     return (
@@ -12,7 +14,9 @@ export default function Projects() {
             >
                 My Projects
             </motion.div>
-           
+
+            <Cardfolder image={Sample_Project} />
+
         </section>
     );
 }

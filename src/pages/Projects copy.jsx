@@ -18,7 +18,7 @@ export default function Projects() {
                     viewport={{ once: false }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    My Projects
+                    My Projects walapa
                 </motion.h1>
 
                 {/* Description */}

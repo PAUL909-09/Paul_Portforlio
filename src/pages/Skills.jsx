@@ -17,6 +17,8 @@ import PostmanIcon from "../assets/Icons/PostmanIcon.svg";
 import GithubIcon from "../assets/Icons/github.svg";
 import VisualStudioIcon from "../assets/Icons/visualstudio.svg";
 import FigmaIcon from "../assets/Icons/figma.svg";
+import git from "../assets/Icons/git.svg";
+import csharp from "../assets/Icons/csharp.svg";
 
 export default function Skills() {
     const technologies = [
@@ -25,8 +27,9 @@ export default function Skills() {
         { name: "JavaScript", icon: JsIcon },
         { name: "TailwindCSS", icon: TailwindIcon },
         { name: "C++", icon: C },
-        { name: "React", icon: ReactIcon },
+        { name: "C#", icon: csharp },
         { name: "MongoDB", icon: MongodbIcon },
+        { name: "Git", icon: git },
         { name: "TypeScript", icon: TypescriptIcon },
     ];
 
