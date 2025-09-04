@@ -233,3 +233,22 @@ pre[class*="language-"] {
   background-color: white;
   opacity: 0.8; /* Make it more visible */
 }
+
+/* Meteor Effects Style */
+@keyframes meteor-fall {
+  0% {
+    transform: translateY(-100px) translateX(0) rotate(45deg);
+    opacity: 0;
+  }
+  5% { /* Faster fade in */
+    opacity: var(--opacity);
+  }
+  95% { /* Slower fade out */
+    opacity: var(--opacity);
+  }
+  100% {
+    transform: translateY(100vh) translateX(-300px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
