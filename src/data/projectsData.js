@@ -1,6 +1,10 @@
 // src/data/projectsData.js
 import Project1 from "../assets/ProjectImages/Project1.png";
 import Project2 from "../assets/ProjectImages/Project2.png";
+import Project3 from "../assets/ProjectImages/Project3.png";
+import Project4 from "../assets/ProjectImages/Project4.png";
+import Project5 from "../assets/ProjectImages/Project5.png";
+import Project6 from "../assets/ProjectImages/Project6.png";
 
 const projects = [
   {
@@ -18,7 +22,12 @@ const projects = [
       techStack: ["JavaScript", "CSS", "HTML"],
       features: ["Responsive design", "Lightweight bundle", "Customizable components"],
       learnings: "Mastered modular JavaScript and CSS optimization techniques.",
-      additionalImages: [Project1, Project2],
+      gallery: [
+        { image: Project1, caption: "Initial UI design mockups and wireframes." },
+        { image: Project2, caption: "Component library development and styling." },
+        { image: Project3, caption: "Responsive layout testing on mobile devices." },
+        { image: Project4, caption: "Final component showcases and documentation." },
+      ],
     },
   },
   {
@@ -36,7 +45,12 @@ const projects = [
       techStack: ["React", "Tailwind CSS", "Vite"],
       features: ["Responsive layout", "Dark/light mode", "Fast performance"],
       learnings: "Improved React component architecture and Tailwind utility-first workflows.",
-      additionalImages: [Project2, Project1],
+      gallery: [
+        { image: Project2, caption: "Home page with interactive hero section." },
+        { image: Project1, caption: "Mobile responsiveness testing and optimization." },
+        { image: Project5, caption: "Project showcase section with category filters." },
+        { image: Project6, caption: "Contact form and social media links." },
+      ],
     },
   },
   {
@@ -54,7 +68,11 @@ const projects = [
       techStack: ["React", "Tailwind CSS", "Monaco Editor"],
       features: ["Real-time code execution", "Syntax highlighting", "Multi-language support"],
       learnings: "Enhanced skills in integrating third-party libraries and optimizing performance.",
-      additionalImages: [Project1, Project2],
+      gallery: [
+        { image: Project1, caption: "Main code editor interface." },
+        { image: Project2, caption: "Real-time code execution and output window." },
+        { image: Project3, caption: "Code highlighting for various programming languages." },
+      ],
     },
   },
   {
@@ -72,7 +90,10 @@ const projects = [
       techStack: ["React", "Tailwind CSS", "CodeMirror"],
       features: ["Real-time previews", "Custom themes", "Multi-language support"],
       learnings: "Learned to balance performance and feature-rich UI in web editors.",
-      additionalImages: [Project2, Project1],
+      gallery: [
+        { image: Project2, caption: "Code editor and live preview." },
+        { image: Project1, caption: "Customizable theme options." },
+      ],
     },
   },
   {
@@ -90,7 +111,11 @@ const projects = [
       techStack: ["React", "Tailwind CSS", "Storybook"],
       features: ["Reusable components", "Design tokens", "Accessible UI"],
       learnings: "Developed expertise in design systems and accessibility standards.",
-      additionalImages: [Project1, Project2],
+      gallery: [
+        { image: Project1, caption: "Style guide with typography and color palettes." },
+        { image: Project2, caption: "Reusable button components with different states." },
+        { image: Project3, caption: "Accessible form elements and inputs." },
+      ],
     },
   },
 ];
