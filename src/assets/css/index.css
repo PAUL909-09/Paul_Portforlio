@@ -252,3 +252,11 @@ pre[class*="language-"] {
   }
 }
 
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.3; }
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+

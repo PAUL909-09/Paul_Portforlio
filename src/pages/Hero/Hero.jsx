@@ -21,6 +21,27 @@ const GridBackground = () => (
     </div>
   </div>
 );
+const code = `
+const profile = {
+    name: '${CONSTRAINTS.PROFILE.NAME}',
+    title: '${CONSTRAINTS.PROFILE.TITLE}',
+    graduationYear: ${CONSTRAINTS.PROFILE.GRADUATIONYEAR},
+    comfortableWith: [
+        '${CONSTRAINTS.PROFILE.COMPORTABLEWITH.join("',\n            '")}'
+    ],
+    skills: [
+        '${CONSTRAINTS.PROFILE.SKILSS.join("',\n            '")}'
+    ],
+    hireable: function() {
+        return (
+            this.qualities.adaptable &&
+            this.qualities.quickLearner &&
+            this.qualities.alwaysLearning &&
+            this.qualities.problemSolver
+        );
+    }
+};
+`;
 
 export default function Hero() {
   useEffect(() => {
@@ -68,28 +89,7 @@ export default function Hero() {
     };
   }, []);
 
-  // Format profile object as a string for display
-  const code = `
-    const profile = {
-        name: '${CONSTRAINTS.PROFILE.NAME}',
-        title: '${CONSTRAINTS.PROFILE.TITLE}',
-        graduationYear: ${CONSTRAINTS.PROFILE.GRADUATIONYEAR},
-        comfortableWith: [
-            '${CONSTRAINTS.PROFILE.COMPORTABLEWITH.join("',\n            '")}'
-        ],
-        skills: [
-            '${CONSTRAINTS.PROFILE.SKILSS.join("',\n            '")}'
-        ],
-        hireable: function() {
-            return (
-                this.qualities.adaptable &&
-                this.qualities.quickLearner &&
-                this.qualities.alwaysLearning &&
-                this.qualities.problemSolver
-            );
-        }
-    };
-  `;
+
 
   return (
     <main className="bg-[#020617] text-white min-h-screen">
@@ -223,3 +223,351 @@ export default function Hero() {
     </main>
   );
 }
+
+
+
+
+// // import { useEffect } from "react";
+// // import Prism from "prismjs";
+// // import "prismjs/components/prism-javascript";
+// // import "@/assets/css/tomorrow.css";
+// // import Meteors from "@/components/ui/meteors";
+// // import PortfolioPage from "@/pages/About/About";
+// // import SparklesText from "@/components/ui/sparkles-text";
+// // import { FlipWords } from "@/components/ui/flip-words";
+// // import { CONSTRAINTS } from "@/config/config";
+
+// // // Grid Background Component
+// // const GridBackground = () => (
+// //   <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+// //     <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]">
+// //       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className="absolute inset-0">
+// //         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+// //           <rect
+// //             width="40"
+// //             height="40"
+// //             fill="none"
+// //             stroke="white"
+// //             strokeWidth="0.5"
+// //             className="opacity-40 animate-gridPulse"
+// //           />
+// //         </pattern>
+// //         <rect width="100%" height="100%" fill="url(#grid)" />
+// //       </svg>
+// //     </div>
+// //   </div>
+// // );
+
+// // export default function Hero() {
+// //   useEffect(() => {
+// //     Prism.highlightAll();
+
+// //     // Add CSS animations for grid and dots
+// //     const style = document.createElement("style");
+// //     style.textContent = `
+// //       @keyframes gridPulse {
+// //         0%, 100% { opacity: 0.1; }
+// //         50% { opacity: 0.3; }
+// //       }
+// //       @keyframes dotPulse {
+// //         0%, 100% { opacity: 0.2; transform: scale(0.8); }
+// //         50% { opacity: 0.5; transform: scale(1.2); }
+// //       }
+// //       @media screen and (min-width: 1360px) and (max-width: 1370px) and (min-height: 760px) and (max-height: 775px) {
+// //         .hero { padding-top: 12rem !important; }
+// //         .hero .container { padding-top: 10rem !important; margin-top: 5rem !important; }
+// //         .hero-section-padding { padding-top: 12rem !important; }
+// //       }
+// //     `;
+// //     document.head.appendChild(style);
+
+// //     // Apply padding for specific resolution
+// //     const checkResolution = () => {
+// //       const isTargetResolution =
+// //         window.innerWidth >= 1360 &&
+// //         window.innerWidth <= 1370 &&
+// //         window.innerHeight >= 760 &&
+// //         window.innerHeight <= 775;
+
+// //       document.documentElement.style.setProperty(
+// //         "--hero-padding-top",
+// //         isTargetResolution ? "12rem" : "0"
+// //       );
+// //     };
+
+// //     checkResolution();
+// //     window.addEventListener("resize", checkResolution);
+
+// //     return () => {
+// //       document.head.removeChild(style);
+// //       window.removeEventListener("resize", checkResolution);
+// //     };
+// //   }, []);
+
+// //   return (
+// //     <main className="bg-[#020617] text-white min-h-screen">
+// //       <section
+// //         className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 hero-section-padding"
+// //         style={{ paddingTop: "var(--hero-padding-top, 0)" }}
+// //       >
+// //         <GridBackground />
+// //         <div className="absolute inset-0 overflow-hidden pointer-events-none">
+// //           <Meteors number={15} />
+// //         </div>
+
+// //         {/* Centered Hero Content */}
+// //         <div className="container mx-auto flex flex-col items-center justify-center relative z-10 text-center py-20 lg:py-32 space-y-8">
+// //           {/* Welcome Badge */}
+// //           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm animate__animated animate__fadeInDown">
+// //             <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
+// //             <span className="text-gray-300 text-sm font-medium">Welcome to my universe</span>
+// //           </div>
+
+// //           {/* Heading */}
+// //           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
+// //             <SparklesText text="Hello" />{" "}
+// //             <span className="inline-block">
+// //               I&apos;m <span className="gradient-text">{CONSTRAINTS.PROFILE.NAME}</span>
+// //             </span>
+// //           </h1>
+
+// //           {/* Flipping Words */}
+// //           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 backdrop-blur-sm">
+// //             <i className="fas fa-rocket text-blue-400 animate-bounce"></i>
+// //             <FlipWords className="text-lg sm:text-xl text-blue-400 font-medium" words={CONSTRAINTS.WORDS} />
+// //           </div>
+
+// //           {/* Short Bio */}
+// //           <p className="text-base sm:text-lg text-gray-300/90 leading-relaxed max-w-2xl">
+// //             Fresh Graduate 2025 🎓 | Full-Stack Explorer 🌐 <br />
+// //             Completed 2 OJTs | Laravel + React (TypeScript) Builder ⚡ Lifelong Learner 📚✨
+// //           </p>
+
+// //           {/* CTA Buttons */}
+// //           <div className="flex flex-col sm:flex-row gap-6 justify-center">
+// //             {/* Learn More */}
+// //             <a
+// //               href={CONSTRAINTS.LINKS.github}
+// //               className="group inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-teal-400 hover:scale-105 transition-all duration-300 shadow-lg"
+// //             >
+// //               <span className="flex items-center gap-2 text-white font-medium">
+// //                 Learn More <i className="fas fa-arrow-right"></i>
+// //               </span>
+// //             </a>
+
+// //             {/* Get Resume */}
+// //             <a
+// //               href={CONSTRAINTS.LINKS.resume}
+// //               className="group inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gray-800 border border-gray-700 hover:scale-105 transition-all duration-300 shadow-lg"
+// //             >
+// //               <span className="flex items-center gap-2 text-gray-300 group-hover:text-white">
+// //                 Get Resume <i className="fas fa-envelope"></i>
+// //               </span>
+// //             </a>
+// //           </div>
+
+// //           {/* Floating Badges - Balanced */}
+// //           {/* <div className="hidden lg:block absolute left-12 top-20 animate-float-slow">
+// //             <div className="px-4 py-2 rounded-lg bg-purple-500/10 backdrop-blur-sm border border-purple-500/20 text-purple-400">
+// //               <i className="fas fa-wand-magic-sparkles"></i>&nbsp;&nbsp;UI Magic
+// //             </div>
+// //           </div> */}
+// //           {/* <div className="hidden lg:block absolute right-12 top-20 animate-float">
+// //             <div className="px-4 py-2 rounded-lg bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 text-blue-400">
+// //               <i className="fas fa-code"></i>&nbsp;&nbsp;Clean Code
+// //             </div>
+// //           </div>
+// //           <div className="hidden lg:block absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-float">
+// //             <div className="px-4 py-2 rounded-lg bg-amber-500/10 backdrop-blur-sm border border-amber-500/20 text-amber-400">
+// //               <i className="fas fa-lightbulb"></i>&nbsp;&nbsp;Innovation
+// //             </div>
+// //           </div> */}
+// //         </div>
+// //       </section>
+
+// //       {/* Scroll Indicator */}
+// //       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
+// //         <span className="text-gray-400 text-sm flex items-center gap-2">
+// //           <i className="fas fa-mouse text-blue-400"></i>
+// //           About me
+// //         </span>
+// //         <i className="fas fa-chevron-down text-blue-400 text-xl"></i>
+// //       </div>
+
+// //       {/* Portfolio Page */}
+// //       <PortfolioPage />
+// //     </main>
+// //   );
+// // }
+
+
+
+
+// import { useEffect } from "react";
+// import Prism from "prismjs";
+// import "prismjs/components/prism-javascript";
+// import "@/assets/css/tomorrow.css";
+// import Meteors from "@/components/ui/meteors";
+// import PortfolioPage from "@/pages/About/About";
+// import SparklesText from "@/components/ui/sparkles-text";
+// import { FlipWords } from "@/components/ui/flip-words";
+// import { CONSTRAINTS } from "@/config/config";
+
+// // Grid Background Component
+// const GridBackground = () => (
+//   <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+//     <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,transparent_0%,black)]">
+//       <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" className="absolute inset-0">
+//         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+//           <rect width="40" height="40" fill="none" stroke="white" strokeWidth="0.5" className="opacity-40 animate-gridPulse" />
+//         </pattern>
+//         <rect width="100%" height="100%" fill="url(#grid)" />
+//       </svg>
+//     </div>
+//   </div>
+// );
+
+// export default function Hero() {
+//   useEffect(() => {
+//     Prism.highlightAll();
+
+//     // Add CSS animations for grid and dots
+//     const style = document.createElement("style");
+//     style.textContent = `
+//       @keyframes gridPulse {
+//         0%, 100% { opacity: 0.1; }
+//         50% { opacity: 0.3; }
+//       }
+//       @keyframes dotPulse {
+//         0%, 100% { opacity: 0.2; transform: scale(0.8); }
+//         50% { opacity: 0.5; transform: scale(1.2); }
+//       }
+//       @media screen and (min-width: 1360px) and (max-width: 1370px) and (min-height: 760px) and (max-height: 775px) {
+//         .hero { padding-top: 12rem !important; }
+//         .hero .container { padding-top: 10rem !important; margin-top: 5rem !important; }
+//         .hero-section-padding { padding-top: 12rem !important; }
+//       }
+//     `;
+//     document.head.appendChild(style);
+
+//     // Apply padding for specific resolution
+//     const checkResolution = () => {
+//       const isTargetResolution =
+//         window.innerWidth >= 1360 &&
+//         window.innerWidth <= 1370 &&
+//         window.innerHeight >= 760 &&
+//         window.innerHeight <= 775;
+
+//       document.documentElement.style.setProperty(
+//         "--hero-padding-top",
+//         isTargetResolution ? "12rem" : "0"
+//       );
+//     };
+
+//     checkResolution();
+//     window.addEventListener("resize", checkResolution);
+
+//     return () => {
+//       document.head.removeChild(style);
+//       window.removeEventListener("resize", checkResolution);
+//     };
+//   }, []);
+
+
+
+//   return (
+//     <main className=" bg-[#020617] text-white min-h-screen ">
+//       <section
+//         className="hero min-h-screen flex items-center justify-center relative px-4 sm:px-6 lg:px-8 py-10 md:py-16 lg:py-0 hero-section-padding"
+//         style={{ paddingTop: "var(--hero-padding-top, 0)" }}
+//       >
+//         <GridBackground />
+//         <div className="absolute inset-0 overflow-hidden pointer-events-none">
+//           <Meteors number={15} />
+//         </div>
+
+//         <div className="flex flex-col justify-center items-center min-h-screen px-4 sm:px-8 lg:px-12 relative overflow-hidden">
+//   {/* Background floating blobs */}
+//   <div className="absolute hidden lg:block -top-24 -left-24 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-float-slow"></div>
+//   <div className="absolute hidden lg:block top-40 -right-24 w-72 h-72 bg-teal-500/20 rounded-full blur-3xl animate-float"></div>
+
+//   {/* Content */}
+//   <div className="w-full max-w-3xl text-center mx-auto animate-fadeInUp">
+//     {/* Badge */}
+//     <div className="inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 shadow-lg mx-auto">
+//       <div className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse"></div>
+//       <span className="text-gray-300 text-sm sm:text-base font-medium">
+//         Welcome to my universe
+//       </span>
+//     </div>
+
+//     {/* Heading */}
+//     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+//       <SparklesText text="Hello," /> <br className="sm:hidden" />
+//       <span className="block sm:inline">I&apos;m</span>{" "}
+//       <span className="typing-effect gradient-text font-extrabold block mt-2 sm:mt-0">
+//         {CONSTRAINTS.PROFILE.NAME}
+//       </span>
+//     </h1>
+
+//     {/* Rotating Words (roles) */}
+//     <div className="inline-flex items-center gap-3 px-6 py-3 mb-10 rounded-2xl bg-gradient-to-r from-blue-500/10 to-teal-500/10 border border-blue-500/20 backdrop-blur-sm shadow-inner mx-auto">
+//       <i className="fas fa-rocket text-blue-400 animate-bounce text-lg"></i>
+//       <FlipWords
+//         className="text-xl sm:text-2xl text-blue-400 font-semibold"
+//         words={CONSTRAINTS.WORDS}
+//       />
+//     </div>
+
+//     {/* About / Description */}
+//     <p className="text-base sm:text-lg lg:text-xl text-gray-300/90 leading-relaxed mb-12 max-w-xl mx-auto">
+//       Fresh Graduate 2025 🎓 | Full-Stack Explorer 🌐 <br />
+//       Completed <span className="font-semibold text-blue-400">2 OJTs</span> | Laravel + React (TypeScript) Builder ⚡{" "}
+//       <span className="italic text-teal-400">Lifelong Learner 📚✨</span>
+//     </p>
+
+//     {/* Action Buttons */}
+//     <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center">
+//       {/* Learn More */}
+//       <a
+//         href={CONSTRAINTS.LINKS.github}
+//         className="group relative inline-flex items-center justify-center gap-3 p-0.5 rounded-xl bg-gradient-to-r from-blue-500 to-teal-400 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2.5rem_-0.5rem_#60A5FA]"
+//       >
+//         <span className="block w-full px-8 py-4 rounded-[11px] bg-gray-900 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-teal-400">
+//           <span className="flex items-center justify-center gap-2 text-white font-medium">
+//             <span>Learn More</span>
+//             <i className="fas fa-arrow-right transform transition-transform duration-300 group-hover:translate-x-1"></i>
+//           </span>
+//         </span>
+//       </a>
+
+//       {/* Resume */}
+//       <a
+//         href={CONSTRAINTS.LINKS.resume}
+//         className="group relative inline-flex items-center justify-center gap-3 p-0.5 rounded-xl bg-gradient-to-r from-gray-800 to-gray-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_2.5rem_-0.5rem_#60A5FA]"
+//       >
+//         <span className="block w-full px-8 py-4 rounded-[11px] bg-gray-900 border border-gray-700/50 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-gray-800 group-hover:to-gray-700">
+//           <span className="flex items-center justify-center gap-2 text-gray-300 font-medium group-hover:text-white">
+//             <span>Get Resume</span>
+//             <i className="fas fa-envelope transform transition-transform duration-300 group-hover:rotate-12"></i>
+//           </span>
+//         </span>
+//       </a>
+//     </div>
+//   </div>
+// </div>
+
+
+//       </section>
+
+//       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
+//         <span className="text-gray-400 text-sm flex items-center gap-2">
+//           <i className="fas fa-mouse text-blue-400"></i>
+//           About me
+//         </span>
+//         <i className="fas fa-chevron-down text-blue-400 text-xl"></i>
+//       </div>
+//       <PortfolioPage />
+//     </main>
+//   );
+// }
