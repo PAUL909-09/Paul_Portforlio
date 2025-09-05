@@ -10,7 +10,6 @@ import Skills from "./pages/Skills/Skills";
 import Education from "./pages/Education/Education";
 import Loading from "./components/Loading";
 import { Route, Routes } from "react-router-dom";
-import Background from "./components/Background";
 
 export default function App() {
   const [isOnePage, setIsOnePage] = useState(false);
@@ -26,7 +25,6 @@ export default function App() {
   }, []);
 
   return (
-<Background>
     <AnimatePresence>
       {isLoading ? (
         <motion.div
@@ -65,6 +63,5 @@ export default function App() {
         </motion.div>
       )}
     </AnimatePresence>
-</Background>
   );
 }
