@@ -5,17 +5,18 @@ import Project3 from "../assets/ProjectImages/Project3.png";
 import Project4 from "../assets/ProjectImages/Project4.png";
 import Project5 from "../assets/ProjectImages/Project5.png";
 import Project6 from "../assets/ProjectImages/Project6.png";
+import LopenzeArtSpace from "../assets/ProjectImages/LopenzeArtSpace.png";
 
 const projects = [
   {
     id: "project_1",
-    title: "C++",
+    title: "Lopenze Art Space Gallery",
     description: "A lightweight JavaScript library for creating beautiful, responsive UI components.",
-    src: Project1,
+    src: LopenzeArtSpace,
     link: "https://i.postimg.cc/DwgWTfP0/Annotation-2025-03-19-113338.png",
     color: "#5196fd",
-    githubLink: "https://github.com/olovajs/olova",
-    liveLink: "https://olova.js.org/",
+    // githubLink: "https://github.com/olovajs/olova",
+    // liveLink: "https://olova.js.org/",
     category: "Major project",
     details: {
       overview: "A lightweight JavaScript library designed to simplify the creation of responsive and accessible UI components, perfect for modern web applications.",
@@ -25,20 +26,18 @@ const projects = [
       gallery: [
         { image: Project1, caption: "Initial UI design mockups and wireframes." },
         { image: Project2, caption: "Component library development and styling." },
-        { image: Project3, caption: "Responsive layout testing on mobile devices." },
+        { image: Project3, caption: "Responsive layout testing on mobile devices.Responsive layout testing on mobile devices.Responsive layout testing on mobile devices.Responsive layout testing on mobile devices.Responsive layout testing on mobile devices.Responsive layout testing on mobile devices.Responsive layout testing on mobile devices.Responsive layout testing on mobile devices." },
         { image: Project4, caption: "Final component showcases and documentation." },
       ],
     },
   },
   {
     id: "project_2",
-    title: "Portfolio Showcase",
-    description: "A sleek portfolio built with React and Tailwind CSS to showcase your skills, projects, and experience in a modern design.",
+    title: "Eccomerce Food Website ",
+    description: "A Jollibee Inspride Website.",
     src: Project2,
     link: "https://i.postimg.cc/J75CKyrs/Annotation-2025-04-01-203959.png",
     color: "#8f89ff",
-    githubLink: "https://github.com/seraprogrammer/portfolio",
-    liveLink: "https://codervai.vercel.app",
     category: "Major project",
     details: {
       overview: "A modern portfolio built with React and Tailwind CSS, showcasing skills and projects with a clean, responsive design optimized for all devices.",
@@ -55,13 +54,11 @@ const projects = [
   },
   {
     id: "project_3",
-    title: "CodeWhisperer",
-    description: "A powerful online code editor built with React and Tailwind CSS. Featuring real-time code execution, syntax highlighting, multi-language support, and a sleek UI. Start coding instantly! 💻✨",
+    title: "Essential tools for daily use",
+    description: "Tools you can use everyday",
     src: Project1,
-    link: "https://i.postimg.cc/J4jPVFY0/Annotation-2025-04-01-204723.png",
+    // link: "https://i.postimg.cc/J4jPVFY0/Annotation-2025-04-01-204723.png",
     color: "#fff",
-    githubLink: "https://github.com/seraprogrammer/codewhisperer",
-    liveLink: "https://codewhisperer.vercel.app/",
     category: "Major project",
     details: {
       overview: "CodeWhisperer is an advanced online code editor that supports real-time code execution, syntax highlighting, and multi-language support, wrapped in a sleek and intuitive UI.",
@@ -72,49 +69,6 @@ const projects = [
         { image: Project1, caption: "Main code editor interface." },
         { image: Project2, caption: "Real-time code execution and output window." },
         { image: Project3, caption: "Code highlighting for various programming languages." },
-      ],
-    },
-  },
-  {
-    id: "project_4",
-    title: "CodeKori",
-    description: "CodeKori is a powerful online code editor built with React and Tailwind CSS. Featuring real-time code execution, syntax highlighting, multi-language support, and a sleek UI. Start coding instantly! 💻✨",
-    src: Project2,
-    link: "https://i.postimg.cc/cHQr4fpR/Annotation-2025-04-01-205350.png",
-    color: "#ed649e",
-    githubLink: "https://github.com/seraprogrammer/CodeKori",
-    liveLink: "https://codekori.js.org",
-    category: "Minor project",
-    details: {
-      overview: "CodeKori offers a streamlined coding experience with real-time execution and a modern UI, designed for developers to prototype quickly.",
-      techStack: ["React", "Tailwind CSS", "CodeMirror"],
-      features: ["Real-time previews", "Custom themes", "Multi-language support"],
-      learnings: "Learned to balance performance and feature-rich UI in web editors.",
-      gallery: [
-        { image: Project2, caption: "Code editor and live preview." },
-        { image: Project1, caption: "Customizable theme options." },
-      ],
-    },
-  },
-  {
-    id: "project_5",
-    title: "UI Design System",
-    description: "A comprehensive UI design system built with React and Tailwind CSS. Includes reusable components, design tokens, and style guides for consistent user interfaces.",
-    src: Project1,
-    link: "https://i.postimg.cc/9QYQY7bF/Annotation-2025-04-01-210000.png",
-    color: "#10b981",
-    githubLink: "https://github.com/seraprogrammer/ui-design-system",
-    liveLink: "https://ui-design-system.vercel.app",
-    category: "UI/UX design",
-    details: {
-      overview: "A robust UI design system providing reusable components, design tokens, and style guides to ensure consistency across web applications.",
-      techStack: ["React", "Tailwind CSS", "Storybook"],
-      features: ["Reusable components", "Design tokens", "Accessible UI"],
-      learnings: "Developed expertise in design systems and accessibility standards.",
-      gallery: [
-        { image: Project1, caption: "Style guide with typography and color palettes." },
-        { image: Project2, caption: "Reusable button components with different states." },
-        { image: Project3, caption: "Accessible form elements and inputs." },
       ],
     },
   },

@@ -1,5 +1,7 @@
+//src\pages\Experience\Experience.jsx
 import React from "react";
 import { Code2, Activity, Cpu, Layers, Network, Binary } from "lucide-react";
+
 
 const ExperienceCard = ({
   title,
@@ -53,14 +55,14 @@ const ExperienceCard = ({
 
 const ExperienceSection = () => {
   const experiences = [
-   
+
     {
       icon: Layers,
       title: "Junior Programmer l/Junior Programmer 2",
       company: "Trifecta Solutions, Inc.",
       period: "July 2024 – September 2024",
       description:
-        "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
+        "My first on-the-job training internship involved enhancing features of a company's website using the MERN Stack.",
     },
     {
       icon: Code2,
@@ -68,7 +70,8 @@ const ExperienceSection = () => {
       company: "Stronghold Insurance Company. Inc.",
       period: "March 2025 – May 2025",
       description:
-        "Contributed to developing JavaScript libraries and enhancing framework functionalities.",
+        "My second on-the-job training internship involved developing a company website from scratch using the Laravel  and React Framework "
+      ,
     },
   ];
 
@@ -123,6 +126,7 @@ const ExperienceSection = () => {
         <div className="absolute top-20 left-20 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-1000" />
       </div>
+
     </>
   );
 };

@@ -91,6 +91,26 @@ export default function Contact() {
       className="pt-20 lg:pt-[0rem] bg-[#04081A]
  text-white min-h-screen"
     >
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-[#04081A]" />
+
+      {/* Grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(50,50,70,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(50,50,70,0.15)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)]" />
+
+      {/* Animated particles */}
+      <div className="absolute inset-0">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-blue-500/20 rounded-full animate-float"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+            }}
+          />
+        ))}
+      </div>
       <section className="hero min-h-screen flex items-center relative px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -216,8 +236,8 @@ export default function Contact() {
               {status && (
                 <div
                   className={`mt-4 text-center ${status.includes("success")
-                      ? "text-green-400"
-                      : "text-red-400"
+                    ? "text-green-400"
+                    : "text-red-400"
                     }`}
                 >
                   <p>{status}</p>

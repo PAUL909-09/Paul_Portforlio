@@ -69,11 +69,12 @@ export default function IconCloud({
   const renderedIcons = useMemo(() => {
     if (!data) return null;
 
+
     return Object.values(data.simpleIcons).map((icon) =>
       renderCustomIcon(icon, theme || "dark")
     );
   }, [data, theme]);
-
+  console.log(renderedIcons);
   return (
     // @ts-ignore
     <Cloud {...cloudProps}>

@@ -2,7 +2,7 @@ export const CONSTRAINTS = {
     LINKS: {
       github: "https://github.com/PAUL909-09",
       resume:
-        "https://drive.google.com/file/d/1AABgNaFIOqN1FthlWR8sMy6Z0YDTKkxI/view?usp=sharing",
+        "https://drive.google.com/file/d/1Wy95z9HQoZX-oWM8pKFDH6C-Y3TUr5Rt/view?usp=sharing",
     },
     WORDS: [
       "Fresh Graduate 2025 | Full-Stack Explorer",

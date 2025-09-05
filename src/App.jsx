@@ -7,6 +7,7 @@ import Header from "./pages/Header/Header";
 import Hero from "./pages/Hero/Hero";
 import Skills from "./pages/Skills/Skills";
 import Education from "./pages/Education/Education";
+import Background from "./components/Background";
 
 import { Route, Routes } from "react-router-dom";
 
@@ -15,16 +16,19 @@ export default function App() {
 
   return (
     <>
+
       <Header />
       {/* Conditional Rendering */}
       {isOnePage ? (
         // One-Page Mode: Render all components together
         <>
-          <Hero />
-          <Skills />
-          <Experience />
-          <Education />
-          <Contact />
+     
+            <Hero />
+            <Skills />
+            <Experience />
+            <Education />
+            <Contact />
+       
         </>
       ) : (
         // Router Mode: Use routes for navigation
@@ -37,6 +41,7 @@ export default function App() {
           <Route path="/projects" element={<Projects />} />
         </Routes>
       )}
+      {/* </Background> */}
     </>
   );
 }
@@ -55,6 +60,7 @@ export default function App() {
 // import Education from "./pages/Education/Education";
 // import Loading from "./components/Loading";
 // import { Route, Routes } from "react-router-dom";
+// import Background from "./components/Background";
 
 // export default function App() {
 //   const [isOnePage, setIsOnePage] = useState(false);
@@ -70,6 +76,7 @@ export default function App() {
 //   }, []);
 
 //   return (
+// <Background>
 //     <AnimatePresence>
 //       {isLoading ? (
 //         <motion.div
@@ -108,5 +115,6 @@ export default function App() {
 //         </motion.div>
 //       )}
 //     </AnimatePresence>
+//</Background>
 //   );
 // }
