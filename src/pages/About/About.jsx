@@ -36,7 +36,7 @@ export default function About() {
             {/* Text card */}
             <div className="space-y-6">
               <p className="text-lg leading-relaxed text-gray-200">
-                Hello! I'm Paul, a <span className="font-semibold text-emerald-300">JavaScript developer</span> passionate about
+                Hello! I'm Paul, an <span className="font-semibold text-emerald-300">aspiring web developer</span> passionate about
                 creating modern web applications and user-friendly interfaces. I’m
                 currently expanding my skills into <span className="font-bold text-cyan-300">Laravel, React, Inertia, and TypeScript</span>,
                 continuously learning and adapting to new technologies.
