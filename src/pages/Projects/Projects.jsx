@@ -7,18 +7,29 @@ import projects from "@/data/projectsData";
 
 export default function Project() {
   const container = useRef(null);
-
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 10;
 
-  // Ensure unique categories and maintain case consistency
   const categories = ["All", ...new Set(projects.map((project) => project.category))];
-
-  // Filter projects with case-insensitive matching
   const filteredProjects =
     selectedCategory === "All"
       ? projects
       : projects.filter((project) => project.category.toLowerCase() === selectedCategory.toLowerCase());
+
+  const paginatedProjects = filteredProjects.slice(0, currentPage * projectsPerPage);
+
+  useEffect(() => {
+    paginatedProjects.forEach((project) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = project.src;
+      document.head.appendChild(link);
+      return () => document.head.removeChild(link);
+    });
+  }, [paginatedProjects]);
 
   useEffect(() => {
     const style = document.createElement("style");
@@ -29,22 +40,18 @@ export default function Project() {
       }
     `;
     document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(style);
-    };
+    return () => document.head.removeChild(style);
   }, []);
+
+  const handleLoadMore = () => {
+    setCurrentPage((prev) => prev + 1);
+  };
 
   return (
     <ReactLenis root>
       <main className="min-h-screen relative overflow-hidden bg-[#04081A]" ref={container}>
-        {/* Animated gradient background */}
         <div className="absolute inset-0 bg-[#04081A]" />
-
-        {/* Grid background */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(50,50,70,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(50,50,70,0.15)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)]" />
-
-        {/* Animated particles */}
         <div className="absolute inset-0">
           {[...Array(20)].map((_, i) => (
             <div
@@ -58,12 +65,8 @@ export default function Project() {
             />
           ))}
         </div>
-
-        {/* Enhanced background effects */}
         <div className="absolute top-20 left-20 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-1000" />
-
-        {/* Filter Menu - Only show when not in detail view */}
         {!selectedProject && (
           <div className="sticky top-16 bg-transparent z-10 py-6 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
@@ -79,12 +82,14 @@ export default function Project() {
                     onClick={() => {
                       console.log(`Filter button clicked: ${category}`);
                       setSelectedCategory(category);
+                      setCurrentPage(1);
                     }}
                     className={`
                       px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 
                       min-w-[100px] min-h-[36px] inline-block cursor-pointer hover:bg-gray-700 hover:text-white
                       ${selectedCategory === category ? "bg-white text-black shadow-lg" : "bg-gray-800 text-gray-300"}
                     `}
+                    aria-label={`Filter by ${category}`}
                   >
                     <span className="w-full text-center inline-block">{category}</span>
                   </button>
@@ -93,8 +98,6 @@ export default function Project() {
             </div>
           </div>
         )}
-
-        {/* Projects Grid or Detail */}
         <AnimatePresence mode="wait">
           {selectedProject ? (
             <ProjectDetail
@@ -103,11 +106,9 @@ export default function Project() {
               onBack={() => setSelectedProject(null)}
             />
           ) : (
-            <section
-              className="text-white w-full py-12 px-6 relative z-10"
-            >
+            <section className="text-white w-full py-12 px-6 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-                {filteredProjects.map((project, i) => (
+                {paginatedProjects.map((project, i) => (
                   <ProjectCard
                     key={`p_${i}`}
                     i={i}
@@ -123,11 +124,20 @@ export default function Project() {
                   />
                 ))}
               </div>
+              {paginatedProjects.length < filteredProjects.length && (
+                <div className="text-center mt-8">
+                  <button
+                    onClick={handleLoadMore}
+                    className="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-medium hover:from-cyan-600 hover:to-blue-600 transition"
+                    aria-label="Load more projects"
+                  >
+                    Load More
+                  </button>
+                </div>
+              )}
             </section>
           )}
         </AnimatePresence>
-
-        {/* No projects found (only show if not selected and empty) */}
         {!selectedProject && filteredProjects.length === 0 && (
           <div className="flex items-center justify-center h-96 text-white relative z-10">
             <div className="text-center">

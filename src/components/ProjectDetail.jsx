@@ -1,25 +1,46 @@
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import TechIcon from "./TechIcon";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-export default function ProjectDetail({ project, onBack }) {
+function ProjectDetail({ project, onBack }) {
   const [imgError, setImgError] = useState(false);
   const [selectedGalleryImage, setSelectedGalleryImage] = useState(null);
+  const galleryRef = useRef(null);
+  const [galleryVisible, setGalleryVisible] = useState(false);
+  const FALLBACK_IMAGE = "https://res.cloudinary.com/dr7pljkee/image/upload/v1757572161/image_1_gchwgm.jpg"; // Temporary fallback
+
+  const sanitizeUrl = (url) => {
+    if (!url || !url.startsWith("https://res.cloudinary.com/dr7pljkee/")) {
+      console.warn(`Invalid URL detected: ${url}. Using fallback.`);
+      return FALLBACK_IMAGE;
+    }
+    return url;
+  };
 
   useEffect(() => {
-    // Automatically select the first gallery image if the gallery exists
     if (project.details?.gallery?.length > 0) {
       setSelectedGalleryImage(project.details.gallery[0]);
     }
   }, [project.details?.gallery]);
 
-  // A helper function to check if a section has content
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setGalleryVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (galleryRef.current) observer.observe(galleryRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const hasContent = (data) => {
-    if (Array.isArray(data)) {
-      return data.length > 0;
-    }
+    if (Array.isArray(data)) return data.length > 0;
     return !!data;
   };
 
@@ -31,13 +52,8 @@ export default function ProjectDetail({ project, onBack }) {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      {/* Animated gradient background */}
       <div className="absolute inset-0 bg-[#04081A]" />
-
-      {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(50,50,70,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(50,50,70,0.15)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)]" />
-
-      {/* Animated particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <div
@@ -51,33 +67,37 @@ export default function ProjectDetail({ project, onBack }) {
           />
         ))}
       </div>
-
-      {/* Enhanced background effects */}
       <div className="absolute top-20 left-20 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-1000" />
-
       <div className="max-w-4xl mx-auto relative z-10">
-        {/* Back Button */}
         <button
           onClick={onBack}
           className="mb-6 px-4 py-2 text-gray-300 hover:text-cyan-400 text-lg font-medium flex items-center transition-all duration-200 rounded-lg hover:bg-gray-800 min-w-[150px] min-h-[40px] cursor-pointer"
+          aria-label="Back to projects"
         >
           ← Back to Projects
         </button>
-
-        {/* Hero Section with Main Image */}
         <div className="bg-gray-900/50 rounded-xl p-6 mb-8 shadow-lg backdrop-blur-sm border border-gray-800/50">
           <div className="w-full h-[250px] md:h-[400px] overflow-hidden rounded-lg mb-6">
             <motion.img
-              src={imgError ? project.link : project.src}
+              src={imgError ? sanitizeUrl(project.link) || FALLBACK_IMAGE : sanitizeUrl(project.src)}
               alt={project.title}
               className="w-full h-full object-cover"
               layoutId={`project-image-${project.id}`}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              onError={() => setImgError(true)}
+              onError={() => {
+                console.warn(`Failed to load main image for ${project.title}: ${project.src}`);
+                setImgError(true);
+              }}
+              loading="lazy"
+              srcSet={`
+                ${sanitizeUrl(project.src)}?w=600,dpr=1 1x,
+                ${sanitizeUrl(project.src)}?w=600,dpr=2 2x,
+                ${sanitizeUrl(project.src)}?w=600,dpr=3 3x
+              `}
+              sizes="(max-width: 768px) 100vw, 600px"
             />
           </div>
-
           <motion.h2
             className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-3"
             layoutId={`project-title-${project.id}`}
@@ -93,7 +113,6 @@ export default function ProjectDetail({ project, onBack }) {
           >
             {project.description}
           </motion.p>
-
           <div className="flex flex-wrap gap-4 mt-4">
             {project.githubLink && (
               <a
@@ -101,6 +120,7 @@ export default function ProjectDetail({ project, onBack }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-medium flex items-center gap-2 hover:from-cyan-600 hover:to-blue-600 transition"
+                aria-label={`View source code for ${project.title}`}
               >
                 <FaGithub /> View Code
               </a>
@@ -111,16 +131,14 @@ export default function ProjectDetail({ project, onBack }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-500 text-white text-sm font-medium flex items-center gap-2 hover:from-purple-600 hover:to-indigo-600 transition"
+                aria-label={`View live demo for ${project.title}`}
               >
                 <FaExternalLinkAlt /> Live Demo
               </a>
             )}
           </div>
         </div>
-
-        {/* === Dynamic Content Sections === */}
         <div className="space-y-8">
-          {/* Overview Section */}
           {hasContent(project.details?.overview) && (
             <motion.div
               className="bg-gray-900/50 rounded-xl p-6 shadow-lg backdrop-blur-sm border border-gray-800/50"
@@ -132,8 +150,6 @@ export default function ProjectDetail({ project, onBack }) {
               <p className="text-gray-300 text-base leading-relaxed">{project.details.overview}</p>
             </motion.div>
           )}
-
-          {/* Tech Stack Section */}
           {hasContent(project.details?.techStack) && (
             <motion.div
               className="bg-gray-900/50 rounded-xl p-6 shadow-lg backdrop-blur-sm border border-gray-800/50"
@@ -149,8 +165,6 @@ export default function ProjectDetail({ project, onBack }) {
               </div>
             </motion.div>
           )}
-
-          {/* Features Section */}
           {hasContent(project.details?.features) && (
             <motion.div
               className="bg-gray-900/50 rounded-xl p-6 shadow-lg backdrop-blur-sm border border-gray-800/50"
@@ -166,8 +180,6 @@ export default function ProjectDetail({ project, onBack }) {
               </ul>
             </motion.div>
           )}
-
-          {/* Learnings Section */}
           {hasContent(project.details?.learnings) && (
             <motion.div
               className="bg-gray-900/50 rounded-xl p-6 shadow-lg backdrop-blur-sm border border-gray-800/50"
@@ -179,18 +191,15 @@ export default function ProjectDetail({ project, onBack }) {
               <p className="text-gray-300 text-base leading-relaxed">{project.details.learnings}</p>
             </motion.div>
           )}
-
-          {/* Gallery Section */}
           {hasContent(project.details?.gallery) && (
             <motion.div
+              ref={galleryRef}
               className="bg-gray-900/50 rounded-xl p-6 shadow-lg backdrop-blur-sm border border-gray-800/50"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.5 }}
             >
               <h3 className="text-2xl font-bold text-white mb-4">📸 Project Gallery</h3>
-
-              {/* Main image viewer with caption */}
               <AnimatePresence mode="wait">
                 {selectedGalleryImage && (
                   <motion.div
@@ -202,9 +211,17 @@ export default function ProjectDetail({ project, onBack }) {
                     transition={{ duration: 0.2 }}
                   >
                     <img
-                      src={selectedGalleryImage.image}
-                      alt={selectedGalleryImage.caption}
+                      src={sanitizeUrl(selectedGalleryImage.image) || FALLBACK_IMAGE}
+                      alt={selectedGalleryImage.caption || "Gallery image"}
                       className="w-full h-auto rounded-lg mb-4 object-cover"
+                      onError={() => console.warn(`Failed to load gallery image: ${selectedGalleryImage.image}`)}
+                      loading="lazy"
+                      srcSet={`
+                        ${sanitizeUrl(selectedGalleryImage.image)}?w=600,dpr=1 1x,
+                        ${sanitizeUrl(selectedGalleryImage.image)}?w=600,dpr=2 2x,
+                        ${sanitizeUrl(selectedGalleryImage.image)}?w=600,dpr=3 3x
+                      `}
+                      sizes="(max-width: 768px) 100vw, 600px"
                     />
                     {selectedGalleryImage.caption && (
                       <p className="text-gray-300 text-center text-base leading-relaxed">{selectedGalleryImage.caption}</p>
@@ -212,25 +229,33 @@ export default function ProjectDetail({ project, onBack }) {
                   </motion.div>
                 )}
               </AnimatePresence>
-
-              {/* Thumbnail gallery */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-4">
-                {project.details.gallery.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSelectedGalleryImage(item)}
-                    className={`
-                      w-full h-24 overflow-hidden rounded-lg transition-all duration-200 ease-in-out
-                      ${selectedGalleryImage?.image === item.image ? "ring-2 ring-cyan-500 shadow-md" : "hover:ring-2 hover:ring-cyan-400"}
-                    `}
-                  >
-                    <img
-                      src={item.image}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </button>
-                ))}
+                {galleryVisible &&
+                  project.details.gallery.map((item, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedGalleryImage(item)}
+                      className={`
+                        w-full h-24 overflow-hidden rounded-lg transition-all duration-200 ease-in-out
+                        ${selectedGalleryImage?.image === item.image ? "ring-2 ring-cyan-500 shadow-md" : "hover:ring-2 hover:ring-cyan-400"}
+                      `}
+                      aria-label={`Select gallery image ${index + 1}`}
+                    >
+                      <img
+                        src={sanitizeUrl(item.image) || FALLBACK_IMAGE}
+                        alt={`Thumbnail ${index + 1}`}
+                        className="w-full h-full object-cover"
+                        onError={() => console.warn(`Failed to load thumbnail: ${item.image}`)}
+                        loading="lazy"
+                        srcSet={`
+                          ${sanitizeUrl(item.image)}?w=150,dpr=1 1x,
+                          ${sanitizeUrl(item.image)}?w=150,dpr=2 2x,
+                          ${sanitizeUrl(item.image)}?w=150,dpr=3 3x
+                        `}
+                        sizes="150px"
+                      />
+                    </button>
+                  ))}
               </div>
             </motion.div>
           )}
@@ -241,6 +266,28 @@ export default function ProjectDetail({ project, onBack }) {
 }
 
 ProjectDetail.propTypes = {
-  project: PropTypes.object.isRequired,
+  project: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    link: PropTypes.string,
+    githubLink: PropTypes.string,
+    liveLink: PropTypes.string,
+    details: PropTypes.shape({
+      overview: PropTypes.string,
+      techStack: PropTypes.arrayOf(PropTypes.string),
+      features: PropTypes.arrayOf(PropTypes.string),
+      learnings: PropTypes.string,
+      gallery: PropTypes.arrayOf(
+        PropTypes.shape({
+          image: PropTypes.string.isRequired,
+          caption: PropTypes.string,
+        })
+      ),
+    }),
+  }).isRequired,
   onBack: PropTypes.func.isRequired,
 };
+
+export default ProjectDetail; // Single default export
