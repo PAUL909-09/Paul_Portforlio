@@ -3,8 +3,8 @@ const projects = [
     id: "project_1",
     title: "Go CTPL",
     description: "A lightweight JavaScript library for creating beautiful, responsive UI components.",
-    src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757572161/image_1_gchwgm.jpg",
-    link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757572161/image_1_gchwgm.jpg", // Using same image as fallback for now
+    src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757574838/LoginPage_kexchi.png",
+    link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757574838/LoginPage_kexchi.png", // Using same image as fallback for now
     color: "#5196fd",
     category: "Major project",
     details: {
@@ -14,8 +14,8 @@ const projects = [
       learnings: "Mastered modular JavaScript and CSS optimization techniques.",
       gallery: [
         {
-          image: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757572148/Screenshot_2025-06-14_191226_yzoavf.png",
-          caption: "Initial UI design mockups and wireframes.",
+          image: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757574835/LandingPage_frxcne.png",
+          caption: "Landing Page.",
         },
       ],
     },
