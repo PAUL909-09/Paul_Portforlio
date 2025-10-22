@@ -1,7 +1,7 @@
-//src\pages\Experience\Experience.jsx
+// src/pages/Experience/Experience.jsx
 import React from "react";
+import { motion } from "framer-motion"; // Add this import for animations
 import { Code2, Activity, Cpu, Layers, Network, Binary } from "lucide-react";
-
 
 const ExperienceCard = ({
   title,
@@ -55,7 +55,6 @@ const ExperienceCard = ({
 
 const ExperienceSection = () => {
   const experiences = [
-
     {
       icon: Layers,
       title: "Junior Programmer l/Junior Programmer 2",
@@ -70,8 +69,7 @@ const ExperienceSection = () => {
       company: "Stronghold Insurance Company. Inc.",
       period: "March 2025 – May 2025",
       description:
-        "My second on-the-job training internship involved developing a company website from scratch using the Laravel  and React Framework "
-      ,
+        "My second on-the-job training internship involved developing a company website from scratch using the Laravel  and React Framework ",
     },
   ];
 
@@ -101,18 +99,23 @@ const ExperienceSection = () => {
 
         {/* Content container */}
         <div className="relative container mx-auto px-6 mt-10">
-          {/* Section header with enhanced effects */}
-          <div className="flex flex-col items-center space-y-8 mb-20">
+          {/* Section header with enhanced effects - Updated to match Education.jsx animation and spacing */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16" // Changed from mb-20 to mb-16 to match Education.jsx spacing
+          >
             <div className="relative">
-              <h2 className="text-5xl md:text-7xl font-black text-transparent bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-center">
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent mb-6">
                 Professional Journey
               </h2>
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl rounded-full" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 blur-3xl rounded-full pt-10" />
             </div>
-            <p className="text-lg md:text-xl text-gray-400 font-medium tracking-wide text-center max-w-2xl">
-              "Transforming ideas into digital reality, one project at a time"
+            <p className="text-lg  md:text-xl text-gray-400 font-medium tracking-wide text-center max-w-2xl mx-auto">
+              Transforming ideas into digital reality, one project at a time
             </p>
-          </div>
+          </motion.div>
 
           {/* Experience grid with improved layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
@@ -126,7 +129,6 @@ const ExperienceSection = () => {
         <div className="absolute top-20 left-20 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-1000" />
       </div>
-
     </>
   );
 };

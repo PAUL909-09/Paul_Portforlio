@@ -1,5 +1,4 @@
 // src/components/TechIcon.jsx
-import React from 'react';
 import PropTypes from 'prop-types';
 import iconMap from './icons/Icons';
 

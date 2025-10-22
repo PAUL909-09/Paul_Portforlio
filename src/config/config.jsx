@@ -21,7 +21,6 @@ export const CONSTRAINTS = {
       COMPORTABLEWITH: [
         "Laravel Framework",
         "React Framework",
-        "TypeScript",
         "MySQL",
         "Inertia.js",
       ],

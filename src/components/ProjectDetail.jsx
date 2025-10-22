@@ -70,7 +70,7 @@ function ProjectDetail({ project, onBack }) {
       </div>
       <div className="absolute top-20 left-20 w-96 h-96 bg-cyan-500/10 rounded-full filter blur-3xl animate-pulse" />
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-1000" />
-      <div className="max-w-4xl mx-auto relative z-10">
+      <div className="max-w-4xl mx-auto relative z-10 mt-10">
         <button
           onClick={onBack}
           className="mb-6 px-4 py-2 text-gray-300 hover:text-cyan-400 text-lg font-medium flex items-center transition-all duration-200 rounded-lg hover:bg-gray-800 min-w-[150px] min-h-[40px] cursor-pointer"
@@ -78,7 +78,7 @@ function ProjectDetail({ project, onBack }) {
         >
           ← Back to Projects
         </button>
-        <div className="bg-gray-900/50 rounded-xl p-6 mb-8 shadow-lg backdrop-blur-sm border border-gray-800/50">
+        {/* <div className="bg-gray-900/50 rounded-xl p-6 mb-8 shadow-lg backdrop-blur-sm border border-gray-800/50">
           <div className="w-full h-[250px] md:h-[400px] overflow-hidden rounded-lg mb-6">
             <motion.img
               src={imgError ? sanitizeUrl(project.link) || FALLBACK_IMAGE : sanitizeUrl(project.src)}
@@ -138,7 +138,7 @@ function ProjectDetail({ project, onBack }) {
               </a>
             )}
           </div>
-        </div>
+        </div> */}
         <div className="space-y-8">
           {hasContent(project.details?.overview) && (
             <motion.div
