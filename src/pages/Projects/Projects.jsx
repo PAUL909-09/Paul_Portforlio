@@ -1,3 +1,4 @@
+//src\pages\Projects\Projects.jsx
 import { ReactLenis } from "lenis/dist/lenis-react";
 import { useRef, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";

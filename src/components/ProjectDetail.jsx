@@ -1,3 +1,4 @@
+//src\components\ProjectDetail.jsx
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 import { useState, useEffect, useRef } from "react";

@@ -28,17 +28,17 @@ function ProjectCard({
   return (
     <motion.div
       className="relative bg-gray-900/50 rounded-2xl overflow-hidden shadow-xl project-card flex flex-col border border-gray-800/50 backdrop-blur-sm"
-      whileHover={isSelected ? {} : { y: -6, scale: 1.02 }}
-      transition={{ duration: 0.3 }}
+      whileHover={isSelected ? {} : { borderColor: "#06B6D4", rotateX: 2 }} // New animation: glowing border and subtle tilt
+      transition={{ duration: 0.2, ease: "easeOut" }} // Snappy duration
     >
-      <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-100 animate-gradient-xy transition-all duration-500" />
+      <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-200" /> {/* Adjusted opacity and duration */}
       <div className="w-full h-[220px] md:h-[260px] relative overflow-hidden">
         <motion.img
           src={imgError ? sanitizeUrl(url) || FALLBACK_IMAGE : sanitizeUrl(src)}
           alt={title}
           className="w-full h-full object-cover"
-          whileHover={isSelected ? {} : { scale: 1.05 }}
-          transition={{ duration: 0.4 }}
+          whileHover={isSelected ? {} : {}} // No image animation to reduce load
+          transition={{ duration: 0.2, ease: "easeOut" }}
           layoutId={`project-image-${title}`}
           onError={() => {
             console.warn(`Failed to load image for ${title}: ${src}`);
