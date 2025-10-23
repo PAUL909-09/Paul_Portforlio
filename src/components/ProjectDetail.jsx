@@ -200,7 +200,7 @@ function ProjectDetail({ project, onBack }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.5 }}
             >
-              <h3 className="text-2xl font-bold text-white mb-4">📸 Project Gallery</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">📸 Project Screencap</h3>
               <AnimatePresence mode="wait">
                 {selectedGalleryImage && (
                   <motion.div

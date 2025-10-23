@@ -62,7 +62,7 @@ export default function About() {
                     <span className="block font-medium text-white">
                       Joseph John Paul Almazan
                     </span>
-                    <span className="text-sm text-gray-400">Web Developer</span>
+                    <span className="text-sm text-gray-400">Aspiring Web Developer</span>
                   </div>
                 </div>
               </div>
