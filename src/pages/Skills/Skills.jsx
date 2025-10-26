@@ -3,7 +3,7 @@
 import { Card, CardContent } from "../../components/ui/card";
 import { Badge } from "../../components/ui/badge";
 import IconCloudDemo from "../../components/globe";
-import { Code2, Paintbrush, Database, Layout, Cpu, Layers } from "lucide-react";
+import { Code2, Database, Layout, Cpu, Layers } from "lucide-react"; //paintbrudh
 import { FaReact, FaFigma } from "react-icons/fa";
 import {
   SiTypescript,
@@ -136,25 +136,25 @@ const SkillsSection = () => {
         },
       ],
     },
-    {
-      icon: Paintbrush,
-      title: "Creative Skills",
-      color: "text-yellow-400",
-      skills: [
-        {
-          name: "UI Animation",
-          icon: <MdAnimation className="w-4 h-4 text-[#FF4081]" />,
-        },
-        {
-          name: "SVG Animation",
-          icon: <MdAnimation className="w-4 h-4 text-[#00C853]" />,
-        },
-        {
-          name: "Motion Graphics",
-          icon: <MdAnimation className="w-4 h-4 text-[#FF6D00]" />,
-        },
-      ],
-    },
+    // {
+    //   icon: Paintbrush,
+    //   title: "Creative Skills",
+    //   color: "text-yellow-400",
+    //   skills: [
+    //     {
+    //       name: "UI Animation",
+    //       icon: <MdAnimation className="w-4 h-4 text-[#FF4081]" />,
+    //     },
+    //     {
+    //       name: "SVG Animation",
+    //       icon: <MdAnimation className="w-4 h-4 text-[#00C853]" />,
+    //     },
+    //     {
+    //       name: "Motion Graphics",
+    //       icon: <MdAnimation className="w-4 h-4 text-[#FF6D00]" />,
+    //     },
+    //   ],
+    // },
   ];
 
   return (

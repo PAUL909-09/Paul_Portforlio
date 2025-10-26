@@ -152,6 +152,7 @@ export default function Project() {
                     description={project.description}
                     githubLink={project.githubLink}
                     liveLink={project.liveLink}
+                    watchLink={project.watchLink}
                     onDetails={() => setSelectedProject(project)}
                     isSelected={selectedProject?.id === project.id}
                   />

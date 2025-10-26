@@ -1,3 +1,4 @@
+//src\components\ProjectCard.jsx
 import { motion } from "framer-motion";
 import { useState } from "react";
 import PropTypes from "prop-types";
@@ -11,15 +12,19 @@ function ProjectCard({
   color,
   githubLink,
   liveLink,
+  watchLink,
   onDetails,
   isSelected,
 }) {
   const [imgError, setImgError] = useState(false);
-  const FALLBACK_IMAGE = "https://res.cloudinary.com/dr7pljkee/image/upload/v1757572161/image_1_gchwgm.jpg"; // Temporary fallback
+  const FALLBACK_IMAGE =
+    "https://via.placeholder.com/300x200?text=Image+Not+Found";
 
   const sanitizeUrl = (url) => {
     if (!url || !url.startsWith("https://res.cloudinary.com/dr7pljkee/")) {
-      console.warn(`Invalid URL detected for ${title}: ${url}. Using fallback.`);
+      console.warn(
+        `Invalid URL detected for ${title}: ${url}. Using fallback.`
+      );
       return FALLBACK_IMAGE;
     }
     return url;
@@ -31,7 +36,8 @@ function ProjectCard({
       whileHover={isSelected ? {} : { borderColor: "#06B6D4", rotateX: 2 }} // New animation: glowing border and subtle tilt
       transition={{ duration: 0.2, ease: "easeOut" }} // Snappy duration
     >
-      <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-200" /> {/* Adjusted opacity and duration */}
+      <div className="absolute -inset-[2px] bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl opacity-0 group-hover:opacity-70 transition-all duration-200" />{" "}
+      {/* Adjusted opacity and duration */}
       <div className="w-full h-[220px] md:h-[260px] relative overflow-hidden">
         <motion.img
           src={imgError ? sanitizeUrl(url) || FALLBACK_IMAGE : sanitizeUrl(src)}
@@ -63,7 +69,9 @@ function ProjectCard({
         >
           {title}
         </motion.h2>
-        <p className="text-sm md:text-base text-gray-300 flex-1 line-clamp-3">{description}</p>
+        <p className="text-sm md:text-base text-gray-300 flex-1 line-clamp-3">
+          {description}
+        </p>
         <div className="mt-4 flex items-center gap-4">
           {githubLink && (
             <a
@@ -87,6 +95,17 @@ function ProjectCard({
               Live
             </a>
           )}
+          {watchLink && (
+            <a
+              href={watchLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition"
+              style={{ color: color || "#06B6D4" }}
+            >
+              🖥️ Watch System Demo
+            </a>
+          )}
           <button
             onClick={onDetails}
             className="ml-auto px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-medium hover:from-cyan-600 hover:to-blue-600 transition"
@@ -108,6 +127,7 @@ ProjectCard.propTypes = {
   color: PropTypes.string.isRequired,
   githubLink: PropTypes.string,
   liveLink: PropTypes.string,
+  watchLink: PropTypes.string,
   onDetails: PropTypes.func.isRequired,
   isSelected: PropTypes.bool,
 };

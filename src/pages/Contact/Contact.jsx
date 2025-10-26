@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Send, Phone, MapPin, Mail } from "lucide-react";
+import { useState, useMemo } from "react";
+import { Send, MapPin, Mail } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -86,6 +86,16 @@ export default function Contact() {
     }
   };
 
+  // Generate particle data once (stable across re-renders)
+  const particles = useMemo(() => {
+    return [...Array(20)].map((_, i) => ({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 5}s`,
+    }));
+  }, []);  // Empty dependency array means this runs only once on mount
+
   return (
     <main
       className="pt-20 lg:pt-[0rem] bg-[#04081A]
@@ -99,14 +109,14 @@ export default function Contact() {
 
       {/* Animated particles */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((particle) => (
           <div
-            key={i}
+            key={particle.id}
             className="absolute w-2 h-2 bg-blue-500/20 rounded-full animate-float"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
+              top: particle.top,
+              left: particle.left,
+              animationDelay: particle.delay,
             }}
           />
         ))}
