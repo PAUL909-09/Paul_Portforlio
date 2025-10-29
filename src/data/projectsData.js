@@ -249,7 +249,7 @@ const projects = [
     details: {
       overview:
         "A reliable desktop app made for managing beauty pageants with ease. It automatically calculates scores, shows real-time results, and helps organizers save time. Built using 💻 VB.NET and 🗄️ SQL Server for smooth and accurate performance.",
-      techStack: ["Visual Basic", 'Microsoft SQL Server'],
+      techStack: ["Visual Basic", "Microsoft SQL Server"],
       features: [
         "Automated scoring and tabulation for all judges and criteria",
         "Real-time ranking and results display",
@@ -400,8 +400,19 @@ const projects = [
       overview:
         "This is build to test and get fammilirise with my 2nd on-the-job-training internship",
       techStack: ["laravel", "Php", "React"],
-      features: [""],
-      learnings: "",
+      features: [
+        "User authentication and role-based access control",
+        "Book catalog management with CRUD operations",
+        "Author and category management system",
+        "Book borrowing and returning functionality",
+        "Search and filter books by title, author, or category",
+        "User profile management and borrowing history",
+        "Admin dashboard with library statistics",
+        "Responsive design for all device sizes",
+        "Real-time updates using Inertia.js",
+      ],
+      learnings:
+        "I learned Laravel, React, and Inertia by myself with help from AI. I built this project from scratch even though I wasn't very familiar with the syntax of these technologies. It was challenging at first, but I kept trying and learned how to make all the parts work together. This project taught me that I can learn new things even when they seem hard at first.",
       gallery: [],
     },
   },
@@ -431,7 +442,8 @@ const projects = [
         "Manage policy series per Policy Type",
         "Monitor and manage transactions",
       ],
-      learnings: "Undertook extensive self-learning of Laravel, React, and Inertia.js with the aid of AI, from limited syntax familiarity to mastery. Succeeded in designing and developing a full-stack application from scratch and was able to successfully understand and fix some complex concepts and problems by myself. This significantly enhanced my ability to rapidly learn and adopt new technologies, enhanced problem-solving skills, and provided hands-on experience with modern full-stack development patterns. The project showed my capacity for self-directed learning and also my resilience in overcoming technical hurdles.",
+      learnings:
+        "Undertook extensive self-learning of Laravel, React, and Inertia.js with the aid of AI, from limited syntax familiarity to mastery. Succeeded in designing and developing a full-stack application from scratch and was able to successfully understand and fix some complex concepts and problems by myself. This significantly enhanced my ability to rapidly learn and adopt new technologies, enhanced problem-solving skills, and provided hands-on experience with modern full-stack development patterns. The project showed my capacity for self-directed learning and also my resilience in overcoming technical hurdles.",
       gallery: [],
     },
   },
