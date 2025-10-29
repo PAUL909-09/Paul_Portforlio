@@ -133,8 +133,10 @@ const projects = [
     title: "Inventoria",
     description:
       "A project for the subject Business Intelligence (Second year, second semester).",
-    src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023559/Picture1_r8ccer.png",
-    link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023559/Picture1_r8ccer.png",
+    src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761743540/Inventoria_Login_cwqug6.png",
+    link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761743540/Inventoria_Login_cwqug6.png",
+
+    // link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023559/Picture1_r8ccer.png",
     watchLink:
       "https://drive.google.com/file/d/1XQL7HwVWckS5RYkZSUxmrAq_fCRRUOFU/view?usp=sharing",
     color: "#5196fd",
@@ -142,7 +144,7 @@ const projects = [
     details: {
       overview:
         "A fully functional project based on Inventory Management System which uses C# Language with MySQL Database. Following C# MySQL project contains all the essential features which can be in use for the first-year, second-year IT students for their college projects. It has a number of features that will allow users to track inventories and sales. This system as well as the desktop application’s concept is all clear. It’s the same as real-life scenarios and well-implemented on it.",
-      techStack: ["C#"],
+      techStack: ["C#", "Microsoft SQL Server"],
       features: [
         "Admin Panel",
         "Manager Panel",
@@ -160,78 +162,78 @@ const projects = [
       ],
       learnings:
         "During the development of this project, I discovered that using C# as a programming language was both challenging and surprisingly exciting. Working in Microsoft Visual Studio made the process more enjoyable, especially with its drag-and-drop design tools that allowed me to build the user interface intuitively and creatively. However, the journey wasn’t without obstacles. Since I was not very familiar with C# at the start, I encountered several difficulties understanding certain concepts and debugging issues. Despite those challenges, I dedicated myself to learning and experimenting, and after more than a month of continuous effort, I was able to complete all the features I envisioned for the system. This experience not only strengthened my technical skills but also deepened my appreciation for software development turning what began as a simple project into a rewarding learning milestone.",
-      gallery: [
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023559/Picture1_r8ccer.png",
-          caption: "Log in ",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023560/Picture2_m4wdhr.png",
-          caption: "Admin Dashboard ",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023560/Picture4_fifph5.png",
-          caption: "Admin cSn view user list",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023560/Picture3_nwsczm.png",
-          caption: "Admin Dashboard",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023562/Picture5_inuadf.png",
-          caption: "Admin can create account for the manager or the member",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023561/Picture6_moklkv.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023561/Picture7_rdvy89.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023562/Picture8_l9rojs.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023563/Picture9_p6zn2h.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023564/Picture10_iqchcg.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023564/Picture10_iqchcg.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023565/Picture11_w2tef1.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023565/Picture12_u0umqf.png",
-          caption: "",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023566/Picture13_oou3u8.png",
-          caption: "",
-        },
-      ],
+      // gallery: [
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023559/Picture1_r8ccer.png",
+      //     caption: "Log in ",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023560/Picture2_m4wdhr.png",
+      //     caption: "Admin Dashboard ",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023560/Picture4_fifph5.png",
+      //     caption: "Admin can view user list",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023560/Picture3_nwsczm.png",
+      //     caption: "Admin can create account for ",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023562/Picture5_inuadf.png",
+      //     caption: "Admin can create account for the manager or the member",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023561/Picture6_moklkv.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023561/Picture7_rdvy89.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023562/Picture8_l9rojs.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023563/Picture9_p6zn2h.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023564/Picture10_iqchcg.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023564/Picture10_iqchcg.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023565/Picture11_w2tef1.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023565/Picture12_u0umqf.png",
+      //     caption: "",
+      //   },
+      //   {
+      //     image:
+      //       "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023566/Picture13_oou3u8.png",
+      //     caption: "",
+      //   },
+      // ],
     },
   },
   {
@@ -246,80 +248,92 @@ const projects = [
     category: "major Project",
     details: {
       overview:
-        "A fully functional project based on Inventory Management System which uses C# Language with MySQL Database. Following C# MySQL project contains all the essential features which can be in use for the first-year, second-year IT students for their college projects. It has a number of features that will allow users to track inventories and sales. This system as well as the desktop application’s concept is all clear. It’s the same as real-life scenarios and well-implemented on it.",
-      techStack: ["C#"],
-      features: [""],
-      learnings: "",
+        "A reliable desktop app made for managing beauty pageants with ease. It automatically calculates scores, shows real-time results, and helps organizers save time. Built using 💻 VB.NET and 🗄️ SQL Server for smooth and accurate performance.",
+      techStack: ["Visual Basic", 'Microsoft SQL Server'],
+      features: [
+        "Automated scoring and tabulation for all judges and criteria",
+        "Real-time ranking and results display",
+        "Judge registration with photo capture and management",
+        "Automatic winner and special awards generation",
+        "Certificate generation for judges and contestants",
+        "Pageant search and result viewing by event name",
+        "Secure SQL Server database for data storage and retrieval",
+      ],
+      learnings:
+        "I learned to link a VB.NET application with SQL Server, handle dynamic data with DataGridViews, and design forms that will make user interaction easier. I developed my skills in database designing and debugging.",
       gallery: [
         {
           image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023146/Screenshot_2025-10-13_202445_sqifuj.png",
-          caption: "Log in ",
-        },
-        {
-          image:
             "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023145/Screenshot_2025-10-13_202509_lrov8b.png",
-          caption: "Admin Menu ",
+          caption: "",
         },
         {
           image:
             "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023144/Screenshot_2025-10-13_203435_nijek1.png",
-          caption: "Log in ",
+          caption: "",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023144/Screenshot_2025-10-13_203444_merusj.png",
+          caption: "",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023144/Screenshot_2025-10-13_203454_kuykl5.png",
+          caption: "",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023143/Screenshot_2025-10-13_204311_egnzql.png",
+          caption: "",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023143/Screenshot_2025-10-13_203503_qapgev.png",
+          caption: "",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023143/Screenshot_2025-10-13_203722_lcpqmn.png",
+          caption: "",
+        },
+        {
+          image:
+            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023143/Screenshot_2025-10-13_203902_cb2znx.png",
+          caption: "",
         },
         {
           image:
             "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023146/Screenshot_2025-10-13_202445_sqifuj.png",
-          caption: "Log in ",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023146/Screenshot_2025-10-13_202445_sqifuj.png",
-          caption: "Log in ",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023146/Screenshot_2025-10-13_202445_sqifuj.png",
-          caption: "Log in ",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023146/Screenshot_2025-10-13_202445_sqifuj.png",
-          caption: "Log in ",
-        },
-        {
-          image:
-            "https://res.cloudinary.com/dr7pljkee/image/upload/v1761023146/Screenshot_2025-10-13_202445_sqifuj.png",
-          caption: "Log in ",
+          caption: "",
         },
       ],
     },
   },
-  {
-    id: "project_5",
-    title: "ATM Management System",
-    description:
-      "A project for the subject Object Oriented Programming, Information Management and Human Computer Interaction(Second year, second semester).",
-    src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761399205/Screenshot_2025-10-25_213221_sqnzpd.png",
-    link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761399205/Screenshot_2025-10-25_213221_sqnzpd.png",
-    watchLink:
-      "https://drive.google.com/file/d/1ojPbTa68Zuzk9BrTSh5c2vgSaiNnylSZ/view?usp=sharing",
-    color: "#5196fd",
-    category: "major Project",
-    details: {
-      overview:
-        "",
-      techStack: ["C#"],
-      features: [""],
-      learnings: "",
-      gallery: [
-      ],
-    },
-  },
+  // {
+  //   id: "project_5",
+  //   title: "ATM Management System",
+  //   description:
+  //     "A project for the subject Object Oriented Programming, Information Management and Human Computer Interaction(Second year, second semester).",
+  //   src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761399205/Screenshot_2025-10-25_213221_sqnzpd.png",
+  //   link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761399205/Screenshot_2025-10-25_213221_sqnzpd.png",
+  //   watchLink:
+  //     "https://drive.google.com/file/d/1ojPbTa68Zuzk9BrTSh5c2vgSaiNnylSZ/view?usp=sharing",
+  //   color: "#5196fd",
+  //   category: "major Project",
+  //   details: {
+  //     overview: "",
+  //     techStack: ["Java", "MySQL"],
+  //     features: [""],
+  //     learnings: "",
+  //     gallery: [],
+  //   },
+  // },
   {
     id: "project_6",
-    title: "ATM Management System",
+    title: "Banking Management System",
     description:
-      "A project for the subject Object Oriented Programming, Information Management and Human Computer Interaction(Second year, second semester).",
+      "A project for the subject Advance Programmin(Third year, first semester).",
     src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761400143/Screenshot_2025-10-25_214743_ytwbgj.png",
     link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761400143/Screenshot_2025-10-25_214743_ytwbgj.png",
     // watchLink:
@@ -327,18 +341,28 @@ const projects = [
     color: "#5196fd",
     category: "major Project",
     details: {
-      overview: "",
-      techStack: ["C#"],
-      features: [""],
-      learnings: "",
+      overview:
+        "The Banking System is a high-performance, console-based backend application developed using the Go programming language. Designed to operate seamlessly within a terminal interface, it delivers core banking functionalities with a focus on secure and efficient financial transaction processing, prioritizing reliability and scalability.",
+      techStack: ["Go"],
+      features: [
+        "User authentication and authorization system",
+        "Account management (creation, updates, deletion)",
+        "Secure transaction processing (deposits, withdrawals, transfers)",
+        "Transaction history tracking",
+        "Balance inquiry functionality",
+        "RESTful API endpoints",
+        "Database integration for data persistence",
+        "Input validation and error handling",
+      ],
+      learnings:
+        "Developed a deep understanding of GoLang basics: structuring, interfaces, and concurrency; experience in creating secure RESTful APIs, providing appropriate authentication mechanisms, and processing financial transactions without loss of data integrity; learned database design principles for financial applications, robust error handling, code organization, best practices for testing, and documentation in Go projects..",
       gallery: [],
     },
   },
   {
     id: "project_7",
     title: "Art Space Gallery",
-    description:
-      "",
+    description: "A prototype project: front-end web application",
     liveLink: "https://art-space-gallery.vercel.app/",
     src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761449425/e13ac480-9e59-481f-9c75-6520342f41dd.png",
     link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1761449425/e13ac480-9e59-481f-9c75-6520342f41dd.png",
@@ -347,18 +371,25 @@ const projects = [
     color: "#5196fd",
     category: "major Project",
     details: {
-      overview: "",
-      techStack: [""],
-      features: [""],
-      learnings: "",
+      overview:
+        "Art Space Gallery is a modern, responsive static website built with React and TypeScript. This frontend-only platform provides an immersive digital gallery experience, allowing art enthusiasts to discover, appreciate, and learn about diverse art collections from around the world." +
+        "Serving as a conceptual proposal for a capstone project, this application has no backend. It simulates an immersive digital art gallery, enabling users to explore virtual exhibition halls, view high-resolution artworks (likely loaded from static files or a content delivery network), and engage with interactive tours and artist spotlights entirely within the user's browser.",
+      techStack: ["TypeScript"],
+      features: [
+        "Virtual Exhibition Halls: Navigate through beautifully designed gallery spaces",
+        "High-Resolution Art Display: Crisp, detailed artwork viewing",
+        "Interactive Art Tours: Guided exploration of collections",
+        "Artist Spotlights: Dedicated sections for featured creators",
+      ],
+      learnings:
+        "While building the project I learned that it is really important to optimize the images because it will slow the loading of it. This led me to implement several performance optimization techniques including lazy loading, responsive image sizing, and modern compression formats. I gained valuable experience in creating a visually rich application without a backend by structuring static data efficiently and implementing client-side filtering and search functionality. Working with TypeScript strengthened my understanding of type safety when handling complex data structures like artwork metadata and artist information. I also developed skills in creating responsive layouts that maintain visual integrity across devices while ensuring accessibility for all users. The project taught me how to balance aesthetic presentation with technical performance, particularly when dealing with high-resolution media assets.",
       gallery: [],
     },
   },
   {
     id: "project_8",
     title: "Library Management System",
-    description:
-      "",
+    description: "A Simple CRUD web application",
     src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757940563/Dashboard_ehmbsm.png",
     link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757940563/Dashboard_ehmbsm.png",
     // watchLink:
@@ -366,8 +397,9 @@ const projects = [
     color: "#5196fd",
     category: "major Project",
     details: {
-      overview: "",
-      techStack: [""],
+      overview:
+        "This is build to test and get fammilirise with my 2nd on-the-job-training internship",
+      techStack: ["laravel", "Php", "React"],
       features: [""],
       learnings: "",
       gallery: [],
@@ -377,7 +409,7 @@ const projects = [
     id: "project_9",
     title: "GoCTPL",
     description:
-      "",
+      "Is a web-based system that simplifies the process of applying for Compulsory Third Party Liability (CTPL) insurance.",
     src: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757574838/LoginPage_kexchi.png",
     link: "https://res.cloudinary.com/dr7pljkee/image/upload/v1757574838/LoginPage_kexchi.png",
     // watchLink:
@@ -386,9 +418,20 @@ const projects = [
     category: "major Project",
     details: {
       overview: "",
-      techStack: [""],
-      features: [""],
-      learnings: "",
+      techStack: ["laravel", "Php", "React"],
+      features: [
+        "👤 User Side",
+        "Create an account and verify via email OTP",
+        "Apply for CTPL insurance online",
+        "Securely pay or choose 'pay later' option",
+        "View transaction history and policy details",
+        "🛡️ Admin Side",
+        "Manage users (approve/deny account access)",
+        "Dashboard with insights",
+        "Manage policy series per Policy Type",
+        "Monitor and manage transactions",
+      ],
+      learnings: "Undertook extensive self-learning of Laravel, React, and Inertia.js with the aid of AI, from limited syntax familiarity to mastery. Succeeded in designing and developing a full-stack application from scratch and was able to successfully understand and fix some complex concepts and problems by myself. This significantly enhanced my ability to rapidly learn and adopt new technologies, enhanced problem-solving skills, and provided hands-on experience with modern full-stack development patterns. The project showed my capacity for self-directed learning and also my resilience in overcoming technical hurdles.",
       gallery: [],
     },
   },

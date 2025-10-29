@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
